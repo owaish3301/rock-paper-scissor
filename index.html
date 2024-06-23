@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png">
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+
+        <p id="rps-text">Rock Paper Scissors</p>
+        <div class="rps-container">
+            <button id="btn1"><img src="images/rock.jpg" alt="rock" id="rock"></button>
+            <button id="btn2"><img src="images/paper.jpg" alt="paper" id="paper"></button>
+            <button id="btn3"><img src="images/scissor.jpg" alt="scissor" id="scissor"></button>    
+        </div>
+        
+
+        <div class="shoot-container">
+            <button id="shoot">SHOOT</button>
+        </div>
+        <p id="shoot-warning">Please make a selection before shooting</p>
+        <p id="result"></p>
+
+
+        <div class="score-card">
+            <div class="player">
+                <p>YOU:<span id="player-score">0</span></p>
+            </div>
+            <div class="comp">
+                <p>COMP:<span id="comp-score">0</span></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
