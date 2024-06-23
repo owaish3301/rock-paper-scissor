@@ -38,7 +38,7 @@ main .shoot-container {
   width: -moz-max-content;
   width: max-content;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 main .shoot-container button {
   text-align: center;
@@ -53,13 +53,16 @@ main .shoot-container button {
 main .shoot-container button:hover {
   cursor: pointer;
 }
-main #shoot-warning, main #result {
+main #shoot-warning, main #result, main #comp-selection {
   display: none;
   color: rgb(126, 7, 7);
   margin: auto;
   width: -moz-max-content;
   width: max-content;
   text-align: center;
+}
+main #comp-selection {
+  margin-top: 20px;
 }
 main .score-card {
   width: -moz-max-content;

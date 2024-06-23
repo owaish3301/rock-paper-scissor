@@ -6,6 +6,8 @@ const shootWarning = document.querySelector("#shoot-warning");
 const whoWon = document.querySelector("#result");
 const playerScore = document.querySelector("#player-score");
 const compScore = document.querySelector("#comp-score");
+const compResult = document.querySelector("#comp-select-info")
+const compSelection = document.querySelector("#comp-selection")
 
 const rps = [rock, paper, scissor];
 let playerSelected = null;
@@ -20,6 +22,10 @@ const selected = (evt) =>{
     //if result is being displayed already hide it
     if(whoWon.style.display !== ""){
         whoWon.style.display = "";
+    }
+    //if selection of comp is shown hide it
+    if(compSelection.style.display !== ""){
+        compSelection.style.display = "";
     }
 
     const button = evt.target.closest('button');
@@ -38,15 +44,16 @@ const shootHandler = (evt) => {
     }
 
     if ( Math.random() < 0.33 ){
-        compSelected = rock;
+        compSelected = "rock";
     }
     else if (Math.random() >= 0.33 && Math.random() < 0.66){
-        compSelected = paper;
+        compSelected = "paper";
     }
     else{
-        compSelected = scissor;
+        compSelected = "scissor";
     }
 
+    compResultDisplay();
 
     const result = checkWinner();
     whoWon.innerHTML = result;
@@ -54,6 +61,11 @@ const shootHandler = (evt) => {
 
 
     updateScore(result);
+}
+
+const compResultDisplay = () =>{
+    compResult.innerHTML = compSelected;
+    compSelection.style.display = "block";
 }
 
 const updateScore = (result) => {
@@ -67,18 +79,18 @@ const updateScore = (result) => {
 
 const checkWinner = () => {
     if(playerSelected === "btn1"){ //btn1 = rock
-        if(compSelected.id === "btn1" ) return "Draw";
-        else if(compSelected.id === "btn2") return "Comp won";
+        if(compSelected === "rock" ) return "Draw";
+        else if(compSelected === "paper") return "Comp won";
         else return "Player won";
     }
     else if(playerSelected === "btn2"){ //btn2 = paper
-        if(compSelected.id === "btn2" ) return "Draw";
-        else if(compSelected.id === "btn3") return "Comp won";
+        if(compSelected === "paper" ) return "Draw";
+        else if(compSelected === "scissor") return "Comp won";
         else return "Player won";
     }
     else { //scissors
-        if(compSelected.id === "btn3" ) return "Draw";
-        else if(compSelected.id === "btn1") return "Comp won";
+        if(compSelected === "scissor" ) return "Draw";
+        else if(compSelected === "rock") return "Comp won";
         else return "Player won";
     }
 }
